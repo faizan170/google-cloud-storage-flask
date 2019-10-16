@@ -3,6 +3,12 @@ from storage import download_blob
 
 
 def process_tree(data, mainPath):
+    '''
+        Get all folders and files. Also get files content in structured format
+        Args: 
+            Data list from google storage as data
+            Complete path for data as mainPath
+    '''
     dataJ = {}
     for row in data:
         if row != "":

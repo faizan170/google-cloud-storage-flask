@@ -1,5 +1,10 @@
+'''
+All these methods belong to google storage python client repo.
+'''
+
 # Imports the Google Cloud client library
 from google.cloud import storage
+
 # Instantiates a client
 storage_client = storage.Client()
 
@@ -82,7 +87,3 @@ def delete_folder(path, bucket_name = "checkma"):
     blob.delete()
 
     print('Blob {} deleted.'.format(path))
-
-#create_folder("codeframe@gmail.com/ie6gpd-pgq3fw-ia6k2c-syfkw0-39cz/y3gzkw-kkcpek-mzcmks-q7dh1f-701g/css/fonts/")
-#upload_blob("temp/views.html",
-#    "codeframe@gmail.com/ie6gpd-pgq3fw-ia6k2c-syfkw0-39cz/y3gzkw-kkcpek-mzcmks-q7dh1f-701g/views.html")
