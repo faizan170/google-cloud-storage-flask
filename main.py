@@ -19,20 +19,20 @@ def getPath(data):
 def main():
     return "GCloud app is working"
 
-@app.route("/create-folder", method=["POST"])
+@app.route("/create-folder", methods=["POST"])
 def createFolderRequest():
     data = jsonifyData(request.data)
     resp = create_folder(os.path.join(getPath(data), data["path"]))
     return jsonify({"type":"success"})
 
-@app.route("/delete-folder", method=["POST"])
+@app.route("/delete-folder", methods=["POST"])
 def deleteFolderRequest():
     data = jsonifyData(request.data)
     resp = delete_folder(os.path.join(getPath(data), data["path"]))
     return jsonify({"type":"success"})
 
 
-@app.route("/upload-file", method=["POST"])
+@app.route("/upload-file", methods=["POST"])
 def uploadFileRequest():
     data = jsonifyData(request.data)
     with open("temp/" + data["path"], "w+") as file:
@@ -41,7 +41,7 @@ def uploadFileRequest():
     os.remove("temp/" + data["path"])
     return jsonify({"type":"success"})
 
-@app.route("/get-dirs-structured-data", method=["POST"])
+@app.route("/get-dirs-structured-data", methods=["POST"])
 def getDirsData():
     data = jsonifyData(request.data)
     # Main path
