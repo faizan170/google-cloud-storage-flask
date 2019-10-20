@@ -82,5 +82,9 @@ def delete_folder(path, bucket_name = "checkma"):
 
     print('Blob {} deleted.'.format(path))
 
+def check_folder_exists(folderPath, bucket_name="checkma"):
+    """ check if path/file exists in bucket or not """
+    bucket = storage_client.bucket(bucket_name)
+    stats = storage.Blob(bucket=bucket, name=folderPath).exists(storage_client)
+    return stats
 
-print(list_blobs())

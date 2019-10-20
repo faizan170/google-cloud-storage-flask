@@ -10,11 +10,12 @@ def process_tree(data, mainPath):
             Complete path for data as mainPath
     '''
     dataJ = {}
+    d = []
     for row in data:
         if row != "":
-            d = []
             typeK = "folder" if row[-1] == "/" else "file"
             dataJ["/root/" + row] = {"path": "/root/" + row, "type" : typeK}
+            d.append(row.split("/")[0])
             if typeK == "folder":
                 child = []
                 for row1 in data:
@@ -32,4 +33,5 @@ def process_tree(data, mainPath):
                 with open(filePath, "r") as file:
                     dataJ["content"] = file.read()
                 os.remove(filePath)
+    dataJ["/root"] = {"type" : "folder", "path" : "/root", "isRoot" : True, "children" : d}
     return dataJ

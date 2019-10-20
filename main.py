@@ -41,6 +41,7 @@ def uploadFileRequest():
     os.remove("temp/" + data["path"])
     return jsonify({"type":"success"})
 
+
 @app.route("/get-dirs-structured-data", methods=["POST"])
 def getDirsData():
     data = jsonifyData(request.data)
